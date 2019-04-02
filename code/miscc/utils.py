@@ -5,6 +5,8 @@ from torch.nn import init
 
 import torch
 import torch.nn as nn
+import matplotlib.font_manager as fm
+
 
 from PIL import Image, ImageDraw, ImageFont
 from copy import deepcopy
@@ -32,7 +34,7 @@ def drawCaption(convas, captions, ixtoword, vis_size, off1=2, off2=2):
     img_txt = Image.fromarray(convas)
     # get a font
     # fnt = None  # ImageFont.truetype('Pillow/Tests/fonts/FreeMono.ttf', 50)
-    fnt = ImageFont.truetype('Pillow/Tests/fonts/FreeMono.ttf', 50)
+    fnt = ImageFont.truetype(fm.findfont(fm.FontProperties(family=combo.get())), 50)
     # get a drawing context
     d = ImageDraw.Draw(img_txt)
     sentence_list = []
